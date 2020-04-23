@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 15</title>
+</head>
+<body>
+    <!-- Container-->
+    <div class="container">
+        <h1>My shopping list:</h1>
+        <label for="">Enter a new item:</label>
+        
+    </div>
+
+    <!-- Java Script -->
+
+    <script>
+
+        // we get our container where we attach our dynamic elements
+
+        var container = document.querySelector(".container");
+
+        // create input
+        
+        var inputElement = document.createElement('input');
+            inputElement.setAttribute('type', "text");
+            inputElement.setAttribute('id', 'textbox');
+            
+        // create button
+        
+        var myButton = document.createElement('button');
+            myButton.setAttribute('type', "button");
+            myButton.textContent = "Add to My Shop List";
+
+        // add created elements to our holder container
+
+        container.appendChild(inputElement);
+        container.appendChild(myButton);
+        myButton.addEventListener("click", addElement);
+
+        function addElement() {
+       
+        //get the textbox and its value
+
+        var txt=document.getElementById('textbox');
+        
+        var textValue=txt.value;
+
+        //create new div element that will hold the text
+
+        var spn = document.createElement('div');
+     
+        spn.innerText=textValue;
+
+        //create button
+
+        var btn = document.createElement('button');     
+            btn.setAttribute('type', "button");
+            btn.textContent = "Delete";
+            spn.appendChild(btn);
+
+        //attach onclik event
+
+        btn.onclick = function() { removeElement(spn); };
+        
+             
+        container.appendChild(spn);
+        
+        }
+
+        function removeElement(spn)
+        {
+            var parent=spn.parentElement;
+            parent.removeChild(spn);
+
+            
+        }
+
+
+    </script>
+
+
+    
+</body>
+</html>
