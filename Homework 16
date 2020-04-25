@@ -1,1 +1,59 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Homework1601</title>
+</head>
+<body>
+    <main class="bg-white">
+        <div class="container">
+            <form action="" class="text-center py-3">
+                <h1>FORM</h1>
+                <hr>
+                <div class="form-group col-md-6 offset-md-3">
+                    <select class="form-control" name="type" id="type">
+                        <option value="disabled" >Select Option</option>
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="success">Success</option>
+                        <option value="danger">Danger</option>
+                        <option value="warning">Warning</option>
+                        <option value="info">Info</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 offset-md-3">
+                    <button type="button" class="border-0 text-white"></button>
+                </div>
+            </form>
+        </div>
+    </main>
 
+    <script>
+        var select = document.querySelector("select");
+        select.addEventListener("change", changeOption);
+
+        function changeOption() {
+            var selected = this.value;
+            var button = document.querySelector(type="button");
+
+            if (selected === "disabled") {
+                button.setAttribute("disabled", "");
+                document.getElementsByTagName("button")[0].setAttribute("class", "border-0 text-white");
+               
+            } else {
+                button.removeAttribute("disabled");
+                button.removeAttribute("class");
+                button.setAttribute("class", "text-capitalize btn btn-block btn-" + selected);
+                button.textContent = selected;
+                
+            }
+        }
+    </script>
+</body>
+</html>
